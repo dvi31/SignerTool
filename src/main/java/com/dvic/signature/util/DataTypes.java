@@ -3,6 +3,7 @@ package com.dvic.signature.util;
 
 import java.io.*;
 import java.util.zip.*;
+import org.apache.commons.codec.binary.Base64InputStream;
 //import org.apache.commons.codec.binary.Base64InputStream;
 
 public class DataTypes {
@@ -31,15 +32,15 @@ public class DataTypes {
         return isToByteArrayOutputStream(monFis);
     }
 
-//    public static String osB64StringFromFile(File leFichier) throws FileNotFoundException, IOException {
-//        Base64InputStream monFis = new Base64InputStream(new FileInputStream(leFichier), true, 64, newLine.getBytes());
-//        return isToByteArrayOutputStream(monFis).toString();
-//    }
-//
-//    public static String osB64DeflateStringFromFile(File leFichier) throws FileNotFoundException, IOException {
-//        Base64InputStream monFis = new Base64InputStream(new DeflaterInputStream(new FileInputStream(leFichier)), true, 64, newLine.getBytes());
-//        return isToByteArrayOutputStream(monFis).toString();
-//    }
+    public static String osB64StringFromFile(File leFichier) throws FileNotFoundException, IOException {
+        Base64InputStream monFis = new Base64InputStream(new FileInputStream(leFichier), true, 64, newLine.getBytes());
+        return isToByteArrayOutputStream(monFis).toString();
+    }
+
+    public static String osB64DeflateStringFromFile(File leFichier) throws FileNotFoundException, IOException {
+        Base64InputStream monFis = new Base64InputStream(new DeflaterInputStream(new FileInputStream(leFichier)), true, 64, newLine.getBytes());
+        return isToByteArrayOutputStream(monFis).toString();
+    }
 
     public static String osStringFromFile(File leFichier) throws FileNotFoundException, IOException {
         FileInputStream monFis = new FileInputStream(leFichier);
